@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+#page-top {
+  cursor: url('../assets/cursors/melon.cur'), auto
+}
 /*!
 * Start Bootstrap - Resume v6.0.1 (https://startbootstrap.com/template-overviews/resume)
 * Copyright 2013-2020 Start Bootstrap

@@ -40,7 +40,6 @@
         target: "#sideNav",
     });
 
-    $('body').css({'cursor': 'url(/assets/cursors/melon.cur), default'});
 
     bubbleCursor()
 
