@@ -40,6 +40,12 @@
         target: "#sideNav",
     });
 
+    const images = ['assets/img/ok_smile.jpg', 'assets/img/ninja.jpg'];
+    let ind = 0;
+    $(document).on("click",function() {
+        const profile = $("#profile-image-circle")
+        profile[0].src = images[++ind%images.length];
+    });
 
     bubbleCursor()
 
