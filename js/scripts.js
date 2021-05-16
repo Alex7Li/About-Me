@@ -62,7 +62,8 @@
     $(window).resize(function () {
         const mc = $("#main-container")[0];
         console.log("resize" + mc.style.marginLeft)
-        if (mc.style.marginLeft !== "0px" && window.innerWidth < 992) {
+        if (mc.style.marginLeft === "-272px" && window.innerWidth < 992) {
+            $("#sideNav").animate({width: 'toggle', paddingLeft: 'toggle', paddingRight: 'toggle'});
             mc.style.marginLeft = "0px"
         }
     })

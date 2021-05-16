@@ -47,11 +47,16 @@
 }
 
 #sidebar-toggle {
-    padding: 16px 64px;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 2000;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
-    display: none;
+    font-size: 12px;
+    border-radius: 100%;
+    background-color: #b3b4ff;
+    display: none; /* only needed if width is at least 992 */
 }
 
 @media (min-width: 992px) {
