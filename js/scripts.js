@@ -3,14 +3,14 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
     */
-    (function ($) {
+(function ($) {
     "use strict"; // Start of use strict
 
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
         if (
             location.pathname.replace(/^\//, "") ==
-                this.pathname.replace(/^\//, "") &&
+            this.pathname.replace(/^\//, "") &&
             location.hostname == this.hostname
         ) {
             let target = $(this.hash);
@@ -42,15 +42,32 @@
 
     const images = ['nice_pic.jpg', 'ok_smile.jpg', 'ninja.jpg'];
     let ind = 0;
-    $(document).on("click",function() {
+    $(document).on("click", function () {
         const profile = $("#profile-image-circle")
-        profile[0].src = 'assets/img/' + images[++ind%images.length];
-
+        profile[0].src = 'assets/img/' + images[++ind % images.length];
     });
 
     bubbleCursor()
 
+    $("#sidebar-toggle").on("click", function () {
+        const side = $("#sideNav");
+        side.animate({width: 'toggle', paddingLeft: 'toggle', paddingRight: 'toggle'});
+        const mc = $("#main-container")[0];
+        if (mc.style.marginLeft !== "-272px") {
+            mc.style.marginLeft = "-272px"
+        } else {
+            mc.style.marginLeft = "0px"
+        }
+    });
+    $(window).resize(function () {
+        const mc = $("#main-container")[0];
+        console.log("resize" + mc.style.marginLeft)
+        if (mc.style.marginLeft !== "0px" && window.innerWidth < 992) {
+            mc.style.marginLeft = "0px"
+        }
+    })
 })(jQuery); // End of use strict
+
 
 /**
  * Code below is Adapted from https://github.com/tholman/cursor-effects/blob/master/src/bubbleCursor.js
@@ -63,7 +80,7 @@ function bubbleCursor(options) {
 
     let width = window.innerWidth;
     let height = window.innerHeight;
-    let cursor = { x: width / 2, y: width / 2 };
+    let cursor = {x: width / 2, y: width / 2};
     let particles = [];
     let canvas, context;
 
@@ -171,7 +188,7 @@ function bubbleCursor(options) {
             x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 10),
             y: -0.4 + Math.random() * -1,
         };
-        this.position = { x: x, y: y };
+        this.position = {x: x, y: y};
         this.canv = canvasItem;
 
         this.baseDimension = 4;
